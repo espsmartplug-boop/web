@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvoric</title>
+    <link rel="icon" type="image/png" href="assets/img/logo (2).png">
+        <link rel="stylesheet" href="result.css">
+    <!-- Load external libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <script src="supabaseClient.js"></script>
+</head>
+<body>
+<!-- Header and Navigation -->
+<div class="container">  
+    <div class="hcontainer">
+        <nav class="navbar">
+            <img src="assets/img/logo.png" style="width: 100px;">
+            <a href="#" class="logo">Power Monitor</a>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </nav>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <label class="switch">
+                <input type="checkbox" id="switch" onchange="toggleSwitch()">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="navbar-menu">
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="">RealTime</a>
+                    <div class="dropdown-content">
+                        <a href="home.html">Device 1</a>
+                        <a href="">Device 2</a>
+                    </div>
+                </li>               
+                <li class="dropdown">
+                    <a href="">History</a>
+                    <div class="dropdown-content">
+                        <a href="result.html">Device 1</a>
+                        <a href="">Device 2</a>
+                    </div>
+                </li>                     
+                <li class="dropdown">
+                    <a href="report.html">Summary</a>
+                </li> 
+            </ul>
+        </div>
+
+
+    </nav>
+</div>
+
+
+<h1 style="color: #ffffff; text-align: center; margin-top: 20px;">Device 1</h1>
+
+
+    <!-- Real-time data table -->
+    <section>
+            <div class="row">
+                <div class="card gauge-card">
+                    <h2>Real-Time Data (15min)</h2>
+                    <canvas id="realtime-chart"></canvas>
+                </div>
+    
+                <div class="card gauge-card">
+                    <table id="realtime-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Voltage</th>
+                                <th>Current</th>
+                                <th>Power Factor</th>
+                                <th>Active Power</th>
+                                <th>Apparent Power</th>
+                                <th>Total Energy</th>
+                                <th>Switch State</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="loading">
+                                <td colspan="8">Loading data...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </section>
+    
+        
+    <!-- Energy trend chart -->
+    <section>
+        <div class="row">
+            <div class="card gauge-card">
+                <h2>Hourly Energy Consumption</h2>
+                <canvas id="powerChart5"></canvas>
+            </div>
+
+            <div class="card gauge-card">
+                <h2>Daily Energy Consumption</h2>
+                <canvas id="powerChart1"></canvas>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Load your JavaScript file -->
+    <script src="result.js"></script>
+</body>
+</html>

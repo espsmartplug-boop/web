@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvoric</title>
+    <link rel="icon" type="image/png" href="assets/img/logo (2).png">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <!-- Login Form -->
+    <div class="container" id="loginForm">
+        <div class="logo-container">
+            <img src="assets/img/logo (2).png" alt="Logo" class="logo">
+        </div>
+                <h1>Login</h1>
+        <form id="loginFormElement">
+            <div class="form-group">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="loginPassword" placeholder="Password" required>
+            </div>
+            <button type="submit">Login</button>
+            <div class="links">
+                <a href="#" id="showRegister">Create Account</a>
+                <a href="#" id="showForgotPassword">Forgot Password?</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Register Form -->
+    <div class="container" id="registerForm" style="display: none;">
+        <h1>Create Account</h1>
+        <form id="registerFormElement">
+            <div class="form-group">
+                <input type="email" id="registerEmail" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <input type="password" id="registerPassword" placeholder="Password" required>
+            </div>
+            <button type="submit">Register</button>
+            <div class="links">
+                <a href="#" id="showLogin">Back to Login</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Forgot Password Form -->
+    <div class="container" id="forgotPasswordForm" style="display: none;">
+        <h1>Reset Password</h1>
+        <form id="forgotPasswordFormElement">
+            <div class="form-group">
+                <input type="email" id="resetEmail" placeholder="Enter your email" required>
+            </div>
+            <button type="submit">Send Reset Link</button>
+            <div class="links">
+                <a href="#" id="backToLogin">Back to Login</a>
+            </div>
+        </form>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabaseClient.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

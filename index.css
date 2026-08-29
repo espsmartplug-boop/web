@@ -1,0 +1,347 @@
+:root {
+    --primary: #4776E6;
+    --secondary: #4776E6;
+    --dark: #2a2a2a;
+    --light: #ffffff;
+    --success: #4CAF50;
+    --error: #ff4444;
+    --box-shadow: rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 15px 25px rgba(0, 0, 0, 0.2),
+        0 5px 10px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    animation: container-appear 0.6s ease-out;
+}
+
+
+.hcontainer {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 20px;
+    width: 98%; /* Full width of the viewport */
+    height: 5vh; /* 10% of the viewport height */
+    max-width: 100%; /* Ensure no max-width limit */
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 15px 25px rgba(0, 0, 0, 0.2),
+        0 5px 10px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    animation: container-appear 0.6s ease-out;
+    
+    /* Positioning the container at the top */
+    position: fixed; /* Fixed at the top */
+    top: 2%; /* Position it at the top of the viewport */
+    left: 1%; /* Start from the center of the viewport */
+    z-index: 1000; /* Ensure it stays on top of other content */
+
+     /* Allow content inside */
+     display: flex;
+     justify-content: center;
+     flex-direction: column;
+     box-sizing: border-box;
+}
+
+@keyframes container-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) rotateX(-10deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotateX(0);
+    }
+}
+
+h1 {
+    text-align: center;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    border-radius: 2px;
+}
+
+.logo-container {
+    text-align: center;
+}
+
+
+.logo {
+    width: 200px;
+    height: auto;
+}
+
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 
+        inset 0 2px 4px rgba(0, 0, 0, 0.05),
+        0 2px 4px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 
+        0 0 0 2px var(--primary),
+        0 5px 15px rgba(71, 118, 230, 0.2);
+    transform: translateY(-2px);
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    color: var(--light);
+    border: none;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s ease;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+button:hover::before {
+    transform: translateX(100%);
+}
+
+button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Logout Button */
+.logout-btn {
+    width: 120PX;
+    height: 30PX;
+
+    background-color: #ff4d4d; /* Solid red color */
+    color: #fff; /* White text */
+    border: 2px solid #ff1a1a; /* Red border */
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block; /* Ensures the button size adjusts based on text content */
+    text-align: center; /* Centers text horizontally */
+    position: center;
+}
+
+.logout-btn:hover {
+    background-color: #ff1a1a; /* Darker red background on hover */
+    border-color: #ff4d4d; /* Change border to lighter red */
+    transform: translateY(-3px); /* Slightly raise on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.logout-btn:active {
+    background-color: #cc0000; /* Even darker red on active */
+    border-color: #cc0000;
+    transform: translateY(-1px); /* Subtle click effect */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.links {
+    margin-top: 1.5rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.links a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+
+.links a:hover::after {
+    width: 100%;
+}
+
+.error {
+    color: var(--error);
+    margin-top: 1rem;
+    text-align: center;
+    padding: 0.8rem;
+    background: rgba(255, 68, 68, 0.1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    animation: shake 0.5s ease-in-out;
+}
+
+.success {
+    color: var(--success);
+    margin-top: 1rem;
+    text-align: center;
+    padding: 0.8rem;
+    background: rgba(76, 175, 80, 0.1);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    animation: success-appear 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes success-appear {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+
+    input, button {
+        padding: 0.8rem;
+    }
+}
+
+/* 3D Card Tilt Effect */
+.container:hover {
+    transform: rotate3d(1, 1, 0, 2deg);
+    transition: transform 0.3s ease;
+}
+
+/* Loading State for Button */
+button.loading {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    background-size: 200% 200%;
+    animation: gradient-move 1.5s ease infinite;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+@keyframes gradient-move {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}

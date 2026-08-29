@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elvotric</title>
+    <link rel="icon" type="image/png" href="assets/img/logo (2).png">
+    <link rel="stylesheet" href="report.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <script src="supabaseClient.js"></script>
+</head>
+<body>
+<!-- Header and Navigation -->
+<div class="container">  
+    <div class="hcontainer">
+        <nav class="navbar">
+            <img src="assets/img/logo.png" style="width: 100px;">
+            <a href="#" class="logo">Power Monitor</a>
+            <button class="logout-btn" id="logoutBtn">Logout</button>
+        </nav>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-brand">
+            <label class="switch">
+                <input type="checkbox" id="switch" onchange="toggleSwitch()">
+                <span class="slider"></span>
+            </label>
+        </div>
+        <div class="navbar-menu">
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="">RealTime</a>
+                    <div class="dropdown-content">
+                        <a href="home.html">Device 1</a>
+                        <a href="">Device 2</a>
+                    </div>
+                </li>               
+                <li class="dropdown">
+                    <a href="">History</a>
+                    <div class="dropdown-content">
+                        <a href="result.html">Device 1</a>
+                        <a href="">Device 2</a>
+                    </div>
+                </li>                     
+                <li class="dropdown">
+                    <a href="report.html">Summary</a>
+                </li> 
+            </ul>
+        </div>
+
+
+    </nav>
+</div>
+
+
+
+<!-- Chart Containers in a Single Row -->
+<div class="row" style="display: flex; justify-content: flex-start; overflow-x: auto; padding: 20px;">
+    <div class="card pgauge-card" style="flex: 0 0 48% ;">
+        <h1 style="color: #4776E6;">Total Energy Consumption</h1>
+
+        <!-- Div to display total energy -->
+        <div>
+            <h1></h1>
+            <h2>Total Energy: <span id="total-energy">0</span></h2>
+            <h2>Total Daily Energy: <span id="daytotal-energy">0</span></h2>
+        </div>
+    </div>
+
+    <div class="card pgauge-card" style="flex: 0 0 48% ;">
+        <h1 style="color: #049677;">Predicted Energy Consumption</h1>
+
+        <!-- Div to display total energy -->
+        <div>
+
+            <h1></h1>
+            <h2 style="color: #049677;"> Predicted Total Energy:<span id="predicted-energy">0</span></h2>
+            <h2 style="color: #049677;"> Predicted Monthly Electricity Cost: LKR<span id="predicted-cost">0</span></h2>
+
+        </div>
+    </div>
+
+</div>
+
+    <h1>Hourly Energy Consumption</h1>
+<!-- Chart Containers in a Single Row -->
+<div class="row" style="display: flex; justify-content: flex-start; overflow-x: auto; padding: 20px;">
+    <!-- Chart Container (Card) for Device 1 -->
+    <div class="card pgauge-card" style="flex: 0 0 48%; padding: 10px;">
+        <div class="chart-container" style="width: 100%; height: auto; margin: 0 auto;">
+            <canvas id="powerChart5"></canvas>
+        </div>
+        <h4>Device 1</h4>
+    </div>
+
+    <!-- Chart Container (Card) for Device 2 -->
+    <div class="card pgauge-card" style="flex: 0 0 48%; padding: 10px;">
+        <div class="chart-container" style="width: 100%; height: auto; margin: 0 auto;">
+            <canvas id="powerChart6"></canvas>
+        </div>
+        <h4>Device 2 (Demo)</h4>
+    </div>
+
+    <!-- Chart Container (Card) for Device 1 (another instance) -->
+    <div class="card pgauge-card" style="flex: 0 0 48%; padding: 10px;">
+        <div class="chart-container" style="width: 100%; height: auto; margin: 0 auto;">
+            <canvas id="powerChart7"></canvas>
+        </div>
+        <h4>Device 3  (Demo)</h4>
+    </div>
+</div>
+</div>
+
+<h1>Daily Energy Consumption</h1>
+<!-- Chart Containers in a Single Row -->
+<div class="row" style="display: flex; justify-content: flex-start; overflow-x: auto; padding: 20px;">
+    <!-- Chart Container (Card) for Device 1 -->
+    <div class="card pgauge-card" style="flex: 0 0 48%; padding: 10px;">
+        <div class="chart-container" style="width: 100%; height: auto; margin: 0 auto;">
+            <canvas id="powerChart1"></canvas>
+        </div>
+        <h4>Device 1</h4>
+    </div>
+
+    <!-- Chart Container (Card) for Device 2 -->
+    <div class="card pgauge-card" style="flex: 0 0 48%; padding: 10px;">
+        <div class="chart-container" style="width: 100%; height: auto; margin: 0 auto;">
+            <canvas id="powerChart2"></canvas>
+        </div>
+        <h4>Device 2  (Demo)</h4>
+    </div>
+
+    <!-- Chart Container (Card) for Device 1 (another instance) -->
+    <div class="card pgauge-card" style="flex: 0 0 48%; padding: 10px;">
+        <div class="chart-container" style="width: 100%; height: auto; margin: 0 auto;">
+            <canvas id="powerChart3"></canvas>
+        </div>
+        <h4>Device 3  (Demo)</h4>
+    </div>
+</div>
+    </div>   
+
+    <script src="report.js"></script>
+</body>
+</html>
